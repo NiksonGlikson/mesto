@@ -1,0 +1,9 @@
+.element__like {
+	margin: 0;
+	cursor: pointer;
+}
+
+.element__like:hover {
+	transition: 0.3s;
+	opacity: 0.5;
+}

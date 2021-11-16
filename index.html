@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mesto</title>
+	<link rel="stylesheet" href="./pages/index.css">
+</head>
+
+<body class="body">
+	<div class="page">
+		<header class="header">
+			<a class="header__link" href="#"><img class="header__logo" src="images/logo_header.svg" alt="логотип Место"></a>
+			<div class="header__line"></div>
+		</header>
+
+		<div class="main">
+			<section class="profile">
+				<img class="profile__avatar" src="images/image.jpg" alt="фото Жак-Ив Кусто">
+				<div class="profile__container">
+					<div class="profile__info">
+						<div class="profile__description">
+							<h1 class="profile__title">Жак-Ив Кусто</h1>
+							<div class="profile__button-edit">
+								<a class="profile__link" href="#"><img class="profile__button-logo" src="images/pen.svg" alt="внести изменения"></a>
+							</div>
+						</div>
+						<p class="profile__subtitle">Исследователь океана</p>
+					</div>
+					<button class="profile__button-add"></button>
+				</div>
+			</section>
+
+			<div class="elements">
+				<div class="element">
+					<img class="element__img" src="images/karachaevsk.png" alt="Карачаевск">
+					<div class="element__items">
+						<p class="element__title">Карачаевск</p>
+						<img class="element__like" src="images/like.svg" alt="лайк">
+					</div>
+				</div>
+				<div class="element">
+					<img class="element__img" src="images/elbrus.png" alt="Эльбрус">
+					<div class="element__items">
+						<p class="element__title">Эльбрус</p>
+						<img class="element__like" src="images/like.svg" alt="лайк">
+					</div>
+				</div>
+				<div class="element">
+					<img class="element__img" src="images/dombai.png" alt="Домбай">
+					<div class="element__items">
+						<p class="element__title">Домбай</p>
+						<img class="element__like" src="images/like.svg" alt="лайк">
+					</div>
+				</div>
+				<div class="element">
+					<img class="element__img" src="images/elbrus.png" alt="Эльбрус">
+					<div class="element__items">
+						<p class="element__title">Эльбрус</p>
+						<img class="element__like" src="images/like.svg" alt="лайк">
+					</div>
+				</div>
+				<div class="element">
+					<img class="element__img" src="images/dombai.png" alt="Домбай">
+					<div class="element__items">
+						<p class="element__title">Домбай</p>
+						<img class="element__like" src="images/like.svg" alt="лайк">
+					</div>
+				</div>
+				<div class="element">
+					<img class="element__img" src="images/karachaevsk.png" alt="Карачаевск">
+					<div class="element__items">
+						<p class="element__title">Карачаево-Черкессия</p>
+						<img class="element__like" src="images/like.svg" alt="лайк">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer class="footer">
+			<p class="footer__copyright">&copy;2020 Mesto Russia</p>
+		</footer>
+
+	</div>
+
+	<div class="pop-up">
+		<div class="pop-up__content">
+			<img class="pop-up__close-icon" src="images/Close_Icon.svg" alt="закрывающий крестик">
+			<div class="pop-up__header">
+				<h2 class="pop-up__title">Редактировать профиль</h2>
+			</div>
+			<form class="pop-up__action">
+				<fieldset class="pop-up__input">
+					<input class="pop-up__profile-name" type="text" value="Жак-Ив Кусто">
+					<input class="pop-up__profile-description" type="text" value="Исследователь океана">
+				</fieldset>
+				<button class="pop-up__submit-button" type='submit'>Сохранить</button>
+			</form>
+		</div>
+	</div>
+	<script src="./script/script.js"></script>
+</body>
+
+</html>
