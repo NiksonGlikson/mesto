@@ -9,8 +9,8 @@
 	.pop-up__close-icon {
 		width: 20px;
 		height: 20px;
-		right: -17px;
-		top: -17px;
+		right: 0;
+		top: -24px;
 	}
 }
 
