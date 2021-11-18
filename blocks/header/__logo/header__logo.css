@@ -5,10 +5,14 @@
 	margin-bottom: 41px;
 }
 
+.header__logo:hover {
+	cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
 	.header__logo {
-		min-height: 24px;
-		min-width: 104px;
+		min-height: 24.4px;
+		min-width: 103.74px;
 		margin-top: 32px;
 		margin-bottom: 28px;
 		margin-left: 27px;

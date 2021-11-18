@@ -1,0 +1,9 @@
+.popup__action {
+	padding-bottom: 0;
+}
+
+@media screen and (max-width: 768px) {
+	.pop-up__action {
+		padding-bottom: 25px;
+	}
+}

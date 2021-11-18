@@ -1,5 +1,5 @@
 .profile__description {
 	display: flex;
 	flex-direction: row;
-	align-items: center;
+	align-items: flex-end;
 }

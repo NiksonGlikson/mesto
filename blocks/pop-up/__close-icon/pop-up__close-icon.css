@@ -1,16 +1,17 @@
 .pop-up__close-icon {
 	position: absolute;
-	right: -35px;
-	top: -35px;
+	right: -40px;
+	top: -40px;
 	cursor: pointer;
+	border: 0;
+	padding: 0;
+	background-color: #000000;
 }
 
 @media screen and (max-width: 768px) {
 	.pop-up__close-icon {
-		width: 20px;
-		height: 20px;
 		right: 0;
-		top: -24px;
+		top: -25px;
 	}
 }
 
