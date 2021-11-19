@@ -7,7 +7,9 @@
 	font-size: 24px;
 	line-height: 29px;
 	text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    max-width: calc(246px - 50px);
+	white-space: nowrap;
+	overflow: hidden;
+	max-width: calc(246px - 50px);
 }
+
+/*у меня ровный код здесь без изменений, я не знаю, почему у Вас он съезжает. Могу скинуть видео или скрин, где даже не меняю его */

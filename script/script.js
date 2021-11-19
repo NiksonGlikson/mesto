@@ -9,6 +9,8 @@ let subtitleName = document.querySelector(".profile__subtitle");
 
 function open() {
 	popUp.classList.add("pop-up_opened");
+	nameInput.value = titleName.textContent;
+	jobInput.value = subtitleName.textContent;
 }
 
 function close() {

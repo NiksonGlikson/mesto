@@ -1,5 +1,5 @@
 .pop-up__title {
-	max-width: 330px;
+	max-width: 315px;
 	font-family: Inter, Arial, sans-serif;
 	color: black;
 	font-style: normal;
@@ -9,7 +9,7 @@
 	margin-right: auto;
 	margin-left: 36px;
 	margin-top: 34px;
-	margin-bottom: 54px;
+	margin-bottom: 50px;
 	text-align: center;
 }
 
