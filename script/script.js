@@ -105,6 +105,7 @@ function formPlaceSubmitHandler(evt) {
 	const imgEl = newItem.querySelector('.element__img');
 	headerEl.textContent = item.name;
 	imgEl.src = item.link;
+	imgEl.alt = item.name;
 
 	const removeBtn = newItem.querySelector('.element__trash');
 	removeBtn.addEventListener('click', handleDelete);
