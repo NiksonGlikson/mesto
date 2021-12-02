@@ -6,7 +6,7 @@ const nameInput = formElement.querySelector('.pop-up__input_profile_name');
 const jobInput = formElement.querySelector('.pop-up__input_profile_description');
 const titleName = document.querySelector('.profile__title');
 const subtitleName = document.querySelector('.profile__subtitle');
-const popupEdit = document.querySelector('.pop-up');
+const popupEdit = document.querySelector('.pop-up_type_edit');
 const popupAdd = document.querySelector('.pop-up_type_add');
 const popupImg = document.querySelector('.pop-up_type_img')
 const closePopupEditBtn = popupEdit.querySelector('.pop-up__close-image');
@@ -44,18 +44,18 @@ const initialCards = [
 	}
   ];
 
-function open(popup) {
+function openPopup(popup) {
 	popup.classList.add('pop-up_opened');
 }
 
 function openPopupEdit() {
-	open(popupEdit);
+	openPopup(popupEdit);
 	nameInput.value = titleName.textContent;
     jobInput.value = subtitleName.textContent;
 }
 
 function openPopupAdd() {
-	open(popupAdd);
+	openPopup(popupAdd);
 	inputEl.value =  '';
 	inputPlace.value = '';
 }
@@ -131,14 +131,14 @@ function handleDelete(evt) {
 function handlePopupImg(evt) {
 	const targetImg = evt.target;
 	const elementImg = targetImg.closest('.element');
-	const bigImg = document.querySelector('.pop-up__image');
+	const bigImg = popupImg.querySelector('.pop-up__image');
 	const popupImgDescribe = document.querySelector('.pop-up__describe');
 
 	popupImgDescribe.textContent = elementImg.textContent;
 	bigImg.src = elementImg.querySelector('.element__img').src;
 	bigImg.alt = elementImg.textContent;
 
-	open(popupImg);
+	openPopup(popupImg);
 }
 
 closePopupImgBtn.addEventListener('click', () => {
