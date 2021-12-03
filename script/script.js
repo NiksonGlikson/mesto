@@ -119,6 +119,7 @@ function formPlaceSubmitHandler(evt) {
 }
 
 function handleLike(evt) {
+	evt.preventDefault();
 	const targetLike = evt.target;
 	targetLike.classList.toggle('element__like_type_black');
 }
