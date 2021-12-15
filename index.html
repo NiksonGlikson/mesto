@@ -8,7 +8,7 @@
 	<title>Mesto</title>
 	<link rel="shortcut icon" href="./images/image.jpg" type="image/x-icon">
 	<link rel="stylesheet" href="./pages/index.css" />
-	<script src="./script/script.js" defer></script>
+	<script src="./script/index.js" defer></script>
 </head>
 
 <body class="body">
@@ -44,15 +44,18 @@
 	</div>
 
 	<div class="pop-up pop-up_type_edit">
+		<div class="pop-up__overlay"></div>
 		<div class="pop-up__content">
 			<button class="pop-up__close-icon" type="button"></button>
 			<h2 class="pop-up__title">Редактировать профиль</h2>
 			<form class="pop-up__action" name="profileEdit">
 				<fieldset class="pop-up__inputs">
-					<input class="pop-up__input pop-up__input_profile_name" name="profileName" type="text"
-						value="Жак-Ив Кусто" />
-					<input class="pop-up__input pop-up__input_profile_description" name="profileDescription" type="text"
-						value="Исследователь океана" />
+					<input class="pop-up__input pop-up__input_profile_name" id="name-card" name="profileName" type="text"
+						value="Жак-Ив Кусто" minlength="2" maxlength="40" required/>
+						<span class="error" id="name-card-error"></span>
+					<input class="pop-up__input pop-up__input_profile_description" id="description-card" name="profileDescription" type="text"
+						value="Исследователь океана" minlength="2" maxlength="200" required/>
+						<span class="error" id="description-card-error"></span>
 				</fieldset>
 				<button class="pop-up__submit-button" type="submit">Сохранить</button>
 			</form>
@@ -60,15 +63,18 @@
 	</div>
 
 	<div class="pop-up pop-up_type_add">
+		<div class="pop-up__overlay"></div>
 		<div class="pop-up__content">
 			<button class="pop-up__close-icon" type="button"></button>
 			<h2 class="pop-up__title">Новое место</h2>
 			<form class="pop-up__action pop-up__action_place" name="placeAdd">
 				<fieldset class="pop-up__inputs">
-					<input class="pop-up__input pop-up__input_name" name="name" type="text" value=""
-						placeholder="Название" required>
-					<input class="pop-up__input pop-up__input_place" name="place" type="text" value=""
+					<input class="pop-up__input pop-up__input_name" id="place-card" name="name" type="text" value=""
+						placeholder="Название" required minlength="2" maxlength="30">
+						<span class="error" id="place-card-error"></span>
+					<input class="pop-up__input pop-up__input_place" id="link-card" name="place" type="url" value=""
 						placeholder="Ссылка на картинку" required>
+						<span class="error" id="link-card-error"></span>
 				</fieldset>
 				<button class="pop-up__submit-button pop-up__submit-button_add" type="submit">Создать</button>
 			</form>
@@ -76,6 +82,7 @@
 	</div>
 
 	<div class="pop-up pop-up_type_img">
+		<div class="pop-up__overlay"></div>
 		<div class="pop-up__intro">
 			<img class="pop-up__image" src="#" alt="">
 			<button class="pop-up__close-icon" type="button"></button>
@@ -94,6 +101,9 @@
 			</div>
 		</div>
 	</template>
+
+	<script src="./script/validate.js"></script>
+
 </body>
 
 </html>

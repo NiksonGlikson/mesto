@@ -40,3 +40,8 @@
 @import url(../blocks/pop-up/__describe/pop-up__describe.css);
 @import url(../blocks/pop-up/__intro/pop-up__intro.css);
 @import url(../blocks/pop-up/_edit/pop-up_type_edit.css);
+@import url(../blocks/error/error.css);
+@import url(../blocks/pop-up/_error/pop-up__input_type_error.css);
+@import url(../blocks/pop-up/_visible/popup__error_visible.css);
+@import url(../blocks/pop-up/_disabled/pop-up__submit-button_disabled.css);
+@import url(../blocks/pop-up/__overlay/pop-up__overlay.css);
