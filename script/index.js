@@ -1,9 +1,9 @@
 const editBtn = document.querySelector(".profile__button-edit");
 const addBtn = document.querySelector(".profile__button-add");
-const formElement = document.querySelector(".pop-up__action");
+const profileForm = document.querySelector(".pop-up__action");
 const formPlaces = document.querySelector(".pop-up__action_place");
-const nameInput = formElement.querySelector(".pop-up__input_profile_name");
-const jobInput = formElement.querySelector(".pop-up__input_profile_description");
+const nameInput = profileForm.querySelector(".pop-up__input_profile_name");
+const jobInput = profileForm.querySelector(".pop-up__input_profile_description");
 const titleName = document.querySelector(".profile__title");
 const subtitleName = document.querySelector(".profile__subtitle");
 const popupEdit = document.querySelector(".pop-up_type_edit");
@@ -15,12 +15,13 @@ const closePopupImgBtn = popupImg.querySelector(".pop-up__close-icon");
 const elements = document.querySelector(".elements");
 const elementTemplate = document.querySelector(".element__template");
 const addButtonEl = document.querySelector(".pop-up__submit-button_add");
-const submitButtonEl = document.querySelector(".pop-up__submit-button");
 const inputEl = document.querySelector(".pop-up__input_name");
 const inputPlace = document.querySelector(".pop-up__input_place");
 const overlayEdit = popupEdit.querySelector(".pop-up__overlay");
 const overlayAdd = popupAdd.querySelector(".pop-up__overlay");
 const overlayImg = popupImg.querySelector(".pop-up__overlay");
+const bigImg = popupImg.querySelector(".pop-up__image");
+const popupImgDescribe = document.querySelector(".pop-up__describe");
 const initialCards = [
   {
     name: "Архыз",
@@ -50,6 +51,7 @@ const initialCards = [
 
 function openPopup(popup) {
   popup.classList.add("pop-up_opened");
+  document.addEventListener('keydown', handleEsc);
 }
 
 function openPopupEdit() {
@@ -63,15 +65,15 @@ function openPopupEdit() {
 }
 
 function openPopupAdd() {
+
   openPopup(popupAdd);
   addButtonEl.classList.add('pop-up__submit-button_disabled');
   addButtonEl.setAttribute('disabled', 'disabled');
-  inputEl.value = "";
-  inputPlace.value = "";
 }
 
 function closePopup(popup) {
   popup.classList.remove("pop-up_opened");
+  document.removeEventListener('keydown', handleEsc);
 }
 
 closePopupEditBtn.addEventListener("click", () => {
@@ -99,23 +101,23 @@ function handleEsc (evt) {
     closePopup(activePopup);
   }}
 
-  document.addEventListener('keydown', handleEsc);
-  document.removeEventListener('keyup', handleEsc);
-
-function formElementSubmitHandler(evt) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   titleName.textContent = nameInput.value;
   subtitleName.textContent = jobInput.value;
   closePopup(popupEdit);
 }
 
-function formPlaceSubmitHandler(evt) {
+function handlePlaceFormSubmit(evt) {
   evt.preventDefault();
 
-  const InputText = inputEl.value;
-  const InputImg = inputPlace.value;
-  const listItem = getItem({ name: InputText, link: InputImg });
+  const inputText = inputEl.value;
+  const inputImg = inputPlace.value;
+  const listItem = getItem({ name: inputText, link: inputImg });
   elements.prepend(listItem);
+
+  inputEl.value = "";
+  inputPlace.value = "";
 
   closePopup(popupAdd);
 }
@@ -162,8 +164,6 @@ function handleDelete(evt) {
 function handlePopupImg(evt) {
   const targetImg = evt.target;
   const elementImg = targetImg.closest(".element");
-  const bigImg = popupImg.querySelector(".pop-up__image");
-  const popupImgDescribe = document.querySelector(".pop-up__describe");
 
   popupImgDescribe.textContent = elementImg.textContent;
   bigImg.src = elementImg.querySelector(".element__img").src;
@@ -176,8 +176,8 @@ closePopupImgBtn.addEventListener("click", () => {
   closePopup(popupImg);
 });
 
-formElement.addEventListener("submit", formElementSubmitHandler);
-formPlaces.addEventListener("submit", formPlaceSubmitHandler);
+profileForm.addEventListener("submit", handleProfileFormSubmit);
+formPlaces.addEventListener("submit", handlePlaceFormSubmit);
 editBtn.addEventListener("click", openPopupEdit);
 addBtn.addEventListener("click", openPopupAdd);
 
