@@ -20,7 +20,7 @@
 @import url(../blocks/pop-up/__content/pop-up__content.css);
 @import url(../blocks/pop-up/__close-icon/pop-up__close-icon.css);
 @import url(../blocks/pop-up/__inputs/pop-up__inputs.css);
-@import url(../blocks/pop-up/__action/pop-up__action.css);
+@import url(../blocks/pop-up/__form/pop-up__form.css);
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__title/profile__title.css);
 @import url(../blocks/profile/__subtitle/profile__subtitle.css);
