@@ -2,8 +2,8 @@ export default class FormValidator {
   constructor(form, configValidation) {
     this._form = form;
     this._inputSelector = configValidation.inputSelector;
-    this._inputSelectorList = Array.from(this._form.querySelectorAll(this._inputSelector));
-    this._submitButtonSelector = this._form.querySelector(configValidation.submitButtonSelector);
+    this._inputList = Array.from(this._form.querySelectorAll(this._inputSelector));
+    this._submitButton = this._form.querySelector(configValidation.submitButtonSelector);
     this._inactiveButtonClass = configValidation.inactiveButtonClass;
     this._inputErrorClass = configValidation.inputErrorClass;
     this._errorClass = configValidation.errorClass;
@@ -24,18 +24,18 @@ export default class FormValidator {
   }
 
   _hasInvalidInput() {
-    return this._inputSelectorList.some((input) => {
+    return this._inputList.some((input) => {
       return !input.validity.valid;
     });
   }
 
   _toggleButtonError() {
     if (this._hasInvalidInput(this._inputSelector)) {
-      this._submitButtonSelector.classList.add(this._inactiveButtonClass);
-      this._submitButtonSelector.disabled = true;
+      this._submitButton.classList.add(this._inactiveButtonClass);
+      this._submitButton.disabled = true;
     } else {
-      this._submitButtonSelector.classList.remove(this._inactiveButtonClass);
-      this._submitButtonSelector.disabled = false;
+      this._submitButton.classList.remove(this._inactiveButtonClass);
+      this._submitButton.disabled = false;
     }
   }
 
@@ -48,18 +48,18 @@ export default class FormValidator {
   }
 
   _setInputListeners() {
-    this._toggleButtonError(this._inputSelectorList);
-    this._inputSelectorList.forEach((input) => {
+    this._toggleButtonError();
+    this._inputList.forEach((input) => {
       input.addEventListener("input", () => {
         this._checkifInputValid(input);
-        this._toggleButtonError(this._inputSelector);
+        this._toggleButtonError();
       });
     });
   }
 
   resetValidation() {
     this._toggleButtonError();
-    this._inputSelectorList.forEach((input) => {
+    this._inputList.forEach((input) => {
       this._hideError(input);
     });
   }

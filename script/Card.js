@@ -41,8 +41,8 @@ _handleDelete = () => {
 }
 
 _handleLike = () => {
-	const targetLike = this._element.querySelector('.element__like');
-	targetLike.classList.toggle('element__like_type_black');
+	this._targetLike = this._element.querySelector('.element__like');
+	this._targetLike.classList.toggle('element__like_type_black');
 }
 
 _setEventListeners() {
