@@ -51,15 +51,14 @@ function openPopup(popup) {
 }
 
 function openPopupEdit() {
-  if (nameInput.value === "" && jobInput.value === "") {
     nameInput.value = titleName.textContent;
     jobInput.value = subtitleName.textContent;
-  }
-
+    formValidators[ profileForm.getAttribute('name') ].resetValidation()
   openPopup(popupEdit);
 }
 
 function openPopupAdd() {
+  formValidators[ formPlaces.getAttribute('name') ].resetValidation()
   openPopup(popupAdd);
 }
 
@@ -72,9 +71,6 @@ const popups = document.querySelectorAll('.pop-up')
 
 popups.forEach((popup) => {
     popup.addEventListener('click', (evt) => {
-        if (evt.target.classList.contains('pop-up_opened')) {
-            closePopup(popup)
-        }
         if (evt.target.classList.contains('pop-up__close-icon')) {
           closePopup(popup)
         }
@@ -83,25 +79,6 @@ popups.forEach((popup) => {
         }
     })
 })
-
-// closePopupEditBtn.addEventListener("click", () => {
-//   closePopup(popupEdit);
-// });
-// closePopupAddBtn.addEventListener("click", () => {
-//   closePopup(popupAdd);
-// });
-
-// overlayEdit.addEventListener("click", () => {
-//   closePopup(popupEdit);
-// });
-
-// overlayAdd.addEventListener("click", () => {
-//   closePopup(popupAdd);
-// });
-
-// overlayImg.addEventListener("click", () => {
-//   closePopup(popupImg);
-// });
 
 function handleEsc(evt) {
   if (evt.key === "Escape" || evt.key === "Esc") {
@@ -123,7 +100,7 @@ function createCard(el) {
   return cardElement;
 }
 
-function handlePlaceFormSubmit() {
+function handlePlaceFormSubmit(e) {
   const inputs = {
     name: inputEl.value,
     link: inputPlace.value,
@@ -131,10 +108,9 @@ function handlePlaceFormSubmit() {
 
   const newCard = createCard(inputs);
   elements.prepend(newCard);
-  document.addEventListener('submit', (e) => { 
-        e.preventDefault(); 
-        e.target.reset(); 
-    });
+  e.preventDefault(); 
+  e.target.reset(); 
+
   closePopup(popupAdd);
 }
 
@@ -166,6 +142,3 @@ const enableValidation = (configValidation) => {
 };
 
 enableValidation(configValidation);
-
-formValidators[ profileForm.getAttribute('name') ].resetValidation()
-formValidators[ formPlaces.getAttribute('name') ].resetValidation()

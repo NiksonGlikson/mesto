@@ -20,6 +20,7 @@ _getTemplate() {
 
 generateCard() {
 	this._element = this._getTemplate();
+	this._targetLike = this._element.querySelector('.element__like');
 	const elementImg = this._element.querySelector('.element__img');
 	elementImg.src = this._link;
 	elementImg.alt = this._name;
@@ -41,7 +42,6 @@ _handleDelete = () => {
 }
 
 _handleLike = () => {
-	this._targetLike = this._element.querySelector('.element__like');
 	this._targetLike.classList.toggle('element__like_type_black');
 }
 
@@ -53,7 +53,6 @@ _setEventListeners() {
 	const removeBtn = this._element.querySelector('.element__trash');
 	removeBtn.addEventListener('click', this._handleDelete);
 
-	const likeBtn = this._element.querySelector('.element__like');
-	likeBtn.addEventListener('click', this._handleLike);
+	this._targetLike.addEventListener('click', this._handleLike);
 }
 }
