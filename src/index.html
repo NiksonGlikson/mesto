@@ -6,20 +6,18 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Mesto</title>
-	<link rel="shortcut icon" href="./images/image.jpg" type="image/x-icon">
-	<link rel="stylesheet" href="./pages/index.css" />
 </head>
 
 <body class="body">
 	<div class="page">
 		<header class="header">
-			<a class="header__link" href="#"><img class="header__logo" src="images/logo_header.svg"
+			<a class="header__link" href="#"><img class="header__logo" src="<%=require('./images/logoheader.svg')%>"
 					alt="логотип Место" /></a>
 		</header>
 
 		<main class="main">
 			<section class="profile">
-				<img class="profile__avatar" src="images/image.jpg" alt="Ваше фото профиля" />
+				<img class="profile__avatar" src="<%=require('./images/image.jpg')%>" alt="Ваше фото профиля" />
 				<div class="profile__container">
 					<div class="profile__info">
 						<div class="profile__description">
@@ -101,7 +99,7 @@
 		</div>
 	</template>
 
-	<script type="module" src="./script/index.js"></script>
+	<script type="module" src="./index.js"></script>
 	<script type="module" src="./utils/configValidation.js"></script>
 
 </body>
