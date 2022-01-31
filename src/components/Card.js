@@ -32,6 +32,7 @@ generateCard() {
 
 _handleDelete = () => {
 	this._element.remove();
+	this._element = null;
 }
 
 _handleLike = () => {

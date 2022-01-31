@@ -23,13 +23,10 @@ export default class Popup {
 	}
 
 	setEventListeners() {
-        this._overlay = this._popup.querySelector(".pop-up__overlay");
-        this._overlay.addEventListener('click', () => {
-            this.close();
-        });
-        this._closeButton = this._popup.querySelector(".pop-up__close-icon");
-        this._closeButton.addEventListener('click', () => {
-            this.close();
-        })
+        this._popup.addEventListener('click', (evt) => {
+			if (evt.target.classList.contains('pop-up__overlay') || evt.target.classList.contains('pop-up__close-icon')) {
+			  this.close();
+			}
+		});
     }
 }
