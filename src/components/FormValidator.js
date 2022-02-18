@@ -9,6 +9,7 @@ export default class FormValidator {
     this._errorClass = configValidation.errorClass;
   }
 
+  // Функция добавления класса с ошибкой
   _showError(input, errorMessageText) {
     const errorMessage = this._form.querySelector(`#${input.id}-error`);
     errorMessage.textContent = errorMessageText;
@@ -16,6 +17,7 @@ export default class FormValidator {
     input.classList.add(this._inputErrorClass);
   }
 
+// Функция скрытия класса с ошибкой
   _hideError(input) {
     const errorMessage = this._form.querySelector(`#${input.id}-error`);
     errorMessage.textContent = "";
@@ -23,12 +25,14 @@ export default class FormValidator {
     input.classList.remove(this._inputErrorClass);
   }
 
+  // Функция проверки массива полей на валидность
   _hasInvalidInput() {
     return this._inputList.some((input) => {
       return !input.validity.valid;
     });
   }
 
+  // Функция переключения кнопки
   _toggleButtonError() {
     if (this._hasInvalidInput(this._inputSelector)) {
       this._submitButton.classList.add(this._inactiveButtonClass);
@@ -47,6 +51,7 @@ export default class FormValidator {
     }
   }
 
+  // Функция добавления обработчиков всем полям
   _setInputListeners() {
     this._toggleButtonError();
     this._inputList.forEach((input) => {
