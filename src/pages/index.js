@@ -10,8 +10,8 @@ import Api from "../components/Api.js";
 import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 
 import { 
-  cardsTemplate,
-  initialElement, 
+  cardsTemplateSelector,
+  initialElementSelector, 
   editPopupBtn, 
   profileAvatarBtn, 
   profileTitle, 
@@ -66,21 +66,17 @@ const renderCard = item => {
     handleDelete: () => {
       popupDelete.open();
       popupDelete.setFormSubmitHandler(() => {
-        renderLoading(true, deletePopup)
         api.handleDelete(item._id)
         .then(() => {
           card.handleDeleteCard();
+          popupDelete.close();
         })
         .catch((err) => {
           console.log(err)
         })
-        .finally(() => {
-          renderLoading(false, deletePopup);
-          popupDelete.close();
-        })
       })
     },
-  }, cardsTemplate);
+  }, cardsTemplateSelector);
 
   return card;
 }
@@ -98,7 +94,7 @@ const renderNewCard = item => {
 const cardsList = new Section({
   items: item,
   renderer: renderCards,
-}, initialElement);
+}, initialElementSelector);
 
 cardsList.renderItems();
 
@@ -115,7 +111,7 @@ const addCard = new PopupWithForm({
       renderNewCard(item)
     })
     .then(() => {
-      addCard.close()
+      addCard.close();
     })
     .catch((err) => {
       console.log(err)

@@ -1,5 +1,5 @@
-export const cardsTemplate = '.element__template';
-export const initialElement = '.elements';
+export const cardsTemplateSelector = '.element__template';
+export const initialElementSelector = '.elements';
 
 export const editPopupBtn = document.querySelector('.profile__button-edit');
 export const profileAvatarBtn = document.querySelector('.profile__button-avatar');
