@@ -121,7 +121,10 @@ const addCard = new PopupWithForm({
 })
 
 addCard.setEventListeners();
-addBtn.addEventListener('click', () => addCard.open());
+addBtn.addEventListener('click', () => {
+  addCard.open();
+  formValidators["add-form"].resetValidation();
+});
 
 const userData = new UserInfo({ profileTitle, profileSubtitle, profileAvatar });
 userData.setUserInfo(data);
@@ -177,9 +180,12 @@ const popupAvatar = new PopupWithForm({
 });
 
 popupAvatar.setEventListeners();
-profileAvatarBtn.addEventListener('click', () => popupAvatar.open())
-
-})
+profileAvatarBtn.addEventListener('click', () => {
+  popupAvatar.open()
+  formValidators["avatar-form"].resetValidation();
+  console.log(formValidators);
+});
+  })
 
 const formValidators = {}
 
@@ -204,3 +210,4 @@ const renderLoading = (loading, popupSelector) => {
   ? 'Сохраняется...' 
   : 'Сохранить';
 }
+

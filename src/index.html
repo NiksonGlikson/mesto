@@ -103,12 +103,12 @@
 		<div class="pop-up__content">
 			<button class="pop-up__close-icon"></button>
 			<h2 class="pop-up__title">Обновить Аватар</h2>
-			<form name="avatar-form" action="#" class="pop-up__form pop-up__form_type_avatar" novalidate>
+			<form name="avatar-form" action="#" method="POST" class="pop-up__form pop-up__form_type_avatar">
 				<fieldset class="pop-up__inputs">
-					<input class="pop-up__input pop-up__input_avatar" id="avatar-input" name="avatar" type="url" placeholder="Ссылка на картинку">
+					<input class="pop-up__input pop-up__input_avatar" id="avatar-input" name="avatar" type="url" value="" placeholder="Ссылка на картинку" required>
 					<span class="error" id="avatar-input-error"></span>
 				</fieldset>
-				<button type="submit" class="pop-up__submit-button pop-up__submit-button_save">Сохранить</button>
+				<button class="pop-up__submit-button pop-up__submit-button_save" type="submit">Сохранить</button>
 			</form>
 		</div>
 	</div>
