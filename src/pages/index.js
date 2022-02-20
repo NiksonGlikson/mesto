@@ -14,14 +14,14 @@ import {
   initialElementSelector, 
   editPopupBtn, 
   profileAvatarBtn, 
-  profileTitle, 
-  profileSubtitle, 
-  profileAvatar, 
-  editPopup, 
-  addCardPopup, 
-  imagePopup, 
-  deletePopup, 
-  avatarPopup, 
+  profileTitleSelector, 
+  profileSubtitleSelector, 
+  profileAvatarSelector, 
+  editPopupSelector, 
+  addCardPopupSelector, 
+  imagePopupSelector, 
+  deletePopupSelector, 
+  avatarPopupSelector, 
   addBtn,
   nameInput,
   jobInput } from "../utils/constants.js";
@@ -37,7 +37,7 @@ Promise.all([ api.getUserInfo(), api.getInitialCards() ])
     const data = newUserData;
     const item = cards;
 
-const popupDelete = new PopupWithConfirmation(deletePopup);
+const popupDelete = new PopupWithConfirmation(deletePopupSelector);
 popupDelete.setEventListeners();
 
 const renderCard = item => {
@@ -99,9 +99,9 @@ const cardsList = new Section({
 cardsList.renderItems();
 
 const addCard = new PopupWithForm({
-  popupSelector: addCardPopup,
+  popupSelector: addCardPopupSelector,
   handleFormSubmit: (item) => {
-    renderLoading(true, addCardPopup);
+    renderLoading(true, addCardPopupSelector);
     const data = {
       name: item.name,
       link: item.place
@@ -116,7 +116,7 @@ const addCard = new PopupWithForm({
     .catch((err) => {
       console.log(err)
     })
-    .finally(() => renderLoading(false, addCardPopup))
+    .finally(() => renderLoading(false, addCardPopupSelector))
   }
 })
 
@@ -126,14 +126,14 @@ addBtn.addEventListener('click', () => {
   formValidators["add-form"].resetValidation();
 });
 
-const userData = new UserInfo({ profileTitle, profileSubtitle, profileAvatar });
+const userData = new UserInfo({ profileTitleSelector, profileSubtitleSelector, profileAvatarSelector });
 userData.setUserInfo(data);
 userData.setUserAvatar(data);
 
 const editProfile = new PopupWithForm({
-  popupSelector: editPopup,
+  popupSelector: editPopupSelector,
   handleFormSubmit: (data) => {
-    renderLoading(true, editPopup)
+    renderLoading(true, editPopupSelector)
     api.editUserInfo(data.name, data.about)
     .then(() => {
       userData.setUserInfo(data)
@@ -144,7 +144,7 @@ const editProfile = new PopupWithForm({
     .catch((err) => {
       console.log(err)
     })
-    .finally(() => renderLoading(false, editPopup))
+    .finally(() => renderLoading(false, editPopupSelector))
   }
 });
 
@@ -158,13 +158,13 @@ editPopupBtn.addEventListener('click', () => {
 });
 
 
-const popupPicture = new PopupWithImage(imagePopup);
+const popupPicture = new PopupWithImage(imagePopupSelector);
 popupPicture.setEventListeners();
 
 const popupAvatar = new PopupWithForm({
-  popupSelector: avatarPopup,
+  popupSelector: avatarPopupSelector,
   handleFormSubmit: (data) => {
-    renderLoading(true, avatarPopup)
+    renderLoading(true, avatarPopupSelector)
     api.editUserAvatar(data.avatar)
     .then(() => {
       userData.setUserAvatar(data);
@@ -175,7 +175,7 @@ const popupAvatar = new PopupWithForm({
     .catch((err) => {
       console.log(err)
     })
-    .finally(() => renderLoading(false, avatarPopup))
+    .finally(() => renderLoading(false, avatarPopupSelector))
   }
 });
 
