@@ -4,12 +4,12 @@
 
 ___________________________
 
-<img src='/images/1.png'>
+<img src='../images/1.png'>
 
 Реализована возможность изменения имени профиля и описания, открытие и закрытие формы по клику на определенные элементы, лайк и удаление карточки. 
 
-<img src='/images/2.png'>
-<img src='/images/3.png'>
+<img src='../images/2.png'>
+<img src='../images/3.png'>
 
 Так же реализована возможность добавлять собственные карточки после заполнения формы по клику на соответствующую кнопку.
 
@@ -19,6 +19,7 @@ ___________________________
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
 ___________________________
 
